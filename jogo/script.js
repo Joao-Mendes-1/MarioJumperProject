@@ -1,5 +1,6 @@
 //obj
 const gameBoard = document.querySelector('.game-board')
+const contadorPontos = document.querySelector('.contador-pontos')
 const nuvem1 = document.querySelector('.nuvem1')
 const nuvem2 = document.querySelector('.nuvem2')
 const mario = document.querySelector('.mario')
@@ -15,6 +16,7 @@ const somMorte = document.getElementById('trilhaMorte')
 const trilha1 = document.getElementById('trilha1')
 const trilhaVitoria = document.getElementById('trilhaVitoria')
 //variaveis preDeclaradas
+let sensorVitoria = false
 let morte = 0
 let fase3 = false
 let tamanhoMario = 120
@@ -29,12 +31,18 @@ let contador = 0
         //tempo\\
         
         function contarTempo(){
-            if(morte==0){
+            if(morte==0 && sensorVitoria == false){
                  console.log(contador)
+                 contarPonto()
                 return contador++
+
             } 
         }
-        setInterval(contarTempo,1000)
+        setInterval(contarTempo,100)
+        //contar ponto
+        function contarPonto(){
+            contadorPontos.innerHTML = contador
+        }
 //funcionamento do start
         document.querySelector('.start').style.display= "none"
         document.querySelector('.game-board').style.display= "block"
@@ -168,6 +176,7 @@ function impacto(){
 
 function vitoria(){
         gameBoard.style.background = 'linear-gradient(rgb(19, 115, 224),white)'
+        document.querySelector('.vitoria').style.display = 'inline-block'
         nuvem1.style.display = 'none'
         nuvem2.style.display = 'none'
         trilha1.pause()
@@ -179,6 +188,7 @@ function vitoria(){
         mario.style.bottom= `${0}px`
         fase3 = false
         pulo = false
+        sensorVitoria = true
 }
 
 const loop = setInterval(impacto,10)
@@ -187,7 +197,7 @@ const loop = setInterval(impacto,10)
 
 
     function lancamentoDeInimigos(){
-        if(contador == 10){
+        if(contador == 100){
             gameBoard.style.background = 'linear-gradient(red,white)'
             tubo.style.display = "none"
             koopaVoador1.style.display = "block"
@@ -195,7 +205,7 @@ const loop = setInterval(impacto,10)
             koopaVoador3.style.display = "block"
             console.log("fase 2")
         }
-        if(contador==25){
+        if(contador==250){
             gameBoard.style.background = 'linear-gradient(black,white)'
             //tubo.style.display = "block"
             koopaVoador1.style.display= "none"
@@ -205,7 +215,7 @@ const loop = setInterval(impacto,10)
             console.log("fase 3")
             return fase3 = true
         }
-        if(contador==30){
+        if(contador==300){
             trofeu.style.display = 'block'
         }
 

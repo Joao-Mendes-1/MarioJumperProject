@@ -10,8 +10,11 @@
     font-family: mario;
     src: url('SuperMario256.ttf');
 }
+body{
+    background-color: salmon;
+}
 
-.button {
+.div-topo {
     margin-top: 30px;
     position: relative;
     text-align: center;
@@ -35,6 +38,44 @@
     
 }
 
+.vitoria{
+    padding: 15px;
+    display: none;
+    /*display: inline-block;*/
+    margin-top: 20px;
+    font-size: 40px;
+    font-family: mario;
+    color: rgb(253, 251, 251);
+    text-transform: uppercase;
+    border: 3px dashed rgb(0, 89, 206);
+    border-radius: 10px;
+    background-color: rgb(245, 55, 55);
+    animation: vitoria 700ms infinite linear;
+}
+
+@keyframes vitoria {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(1deg);
+    }
+    40% {
+        transform: rotate(-1deg);
+    }
+
+    60% {
+        opacity: 0.8;
+        background-color: rgb(0,89,206);
+        color: rgb(245,55,55);
+        border: 3px dashed rgb(253,251,251);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 .game-board{
     
     display: none ;
@@ -46,7 +87,8 @@
     height: 400px;
     border: 2px solid black;
     border-radius: 30px;
-    border-bottom: 30px solid rgb( 2, 199, 3);
+    border-bottom: 30px solid rgb(87, 153, 87);
+    
     position: relative;
     overflow: hidden;
     transition: 1s;
@@ -54,12 +96,22 @@
 
     
 }
-
-.div-vitoria{
-    margin-top: 30px;
-    position: relative;
-
+.tabela-pontos{ 
+    margin: 0 auto;
+    margin-top: 15px;
+    position: absolute;
 }
+
+.contador-pontos{
+    padding: 10px;
+    display: inline-block;
+    font-size: 20px;
+    font-family: mario;
+    background-color: rgb(247, 232, 214);
+    border: 2px solid black;
+    border-radius: 40px;
+}
+
 
 
 /*Nuvens*/
@@ -193,7 +245,8 @@
 .koopa-voa1{
     display: none;
     position: absolute;
-    width: 15%;
+    width: 165px;
+    /*width: 15%;*/
     bottom: 0px;
     /*left: 40px;*/
     transform: rotatey(180deg);
@@ -203,7 +256,8 @@
 .koopa-voa2{
     display: none;
     position: absolute;
-    width: 15%;
+    width: 165px;
+    /*width: 15%;*/
     /*left: 40px;*/
     bottom: 100px;
     transform: rotatey(180deg);
@@ -213,8 +267,9 @@
 .koopa-voa3{
     display: none;
     position: absolute;
+    width: 165px;
     /*left: 40px;*/
-    width: 15%;
+    /*width: 15%;*/
     bottom: 35px;
     transform: rotatey(180deg);
     animation: koopaVoa 4s infinite linear;
@@ -235,7 +290,8 @@
 .bala{
     display: none;
     position: absolute;
-    width: 35%;
+    width: 380px;
+    /*width: 35%;*/
     animation: bala 1s infinite linear;
 }
 
