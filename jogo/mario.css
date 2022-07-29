@@ -213,7 +213,6 @@ body{
 /*Tubo*/
 
 .tubo {
-    display: none;
     position: absolute;
     width: 70px;
     bottom: 0;

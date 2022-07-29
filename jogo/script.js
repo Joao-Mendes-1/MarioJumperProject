@@ -26,7 +26,7 @@ let pulo = true
 //start
 const botaoStart = document.querySelector('.start')
 let sensorStart = false
-let contador =  240
+let contador =  0
 
 
     function start() {
