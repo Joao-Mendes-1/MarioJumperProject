@@ -54,6 +54,7 @@ let contador =  0
         return sensorStart = true
     
 }
+
 botaoStart.onclick = start
 
 document.addEventListener("keypress", function(event,which){
