@@ -12,7 +12,6 @@ const koopaVoador2 = document.querySelector('.koopa-voa2')
 const koopaVoador3 = document.querySelector('.koopa-voa3')
 const balaBill = document.querySelector('.bala')
 const trofeu = document.querySelector('.trofeu')
-
 //audio
 const somMorte = document.getElementById('trilhaMorte')
 const trilha1 = document.getElementById('trilha1')
@@ -57,7 +56,11 @@ let contador =  0
 }
 botaoStart.onclick = start
 
-
+document.addEventListener("keypress", function(event,which){
+    if(event.which === 32 && sensorStart === false){
+        start()
+    }
+})
 
 //lógica do jogo
 
@@ -96,7 +99,7 @@ document.addEventListener('mousedown', diminuir)
 document.addEventListener('click', aumentar)
 
     function impacto(){
-        
+       
         const posicaoTubo = tubo.offsetLeft;
         const posicaoMario = +window.getComputedStyle(mario).bottom.replace('px','')
         if(posicaoTubo < 95 && posicaoMario <90 && posicaoTubo>0){
@@ -112,7 +115,7 @@ document.addEventListener('click', aumentar)
         const posicaoKoopa2 = koopaVoador2.offsetLeft
         const posicaoKoopa3 = koopaVoador3.offsetLeft
 
-        if(posicaoKoopa1 <40 && posicaoMario<140 &&  posicaoKoopa1>0 && sensorStart == true){
+        if(posicaoKoopa1 <40 && posicaoMario<140 && posicaoKoopa1>0 && sensorStart == true){
             koopaVoador1.style.animation = "none"
             koopaVoador1.style.left= `${posicaoKoopa1}px`
             morte++
@@ -220,6 +223,8 @@ const loop = setInterval(impacto,10)
         }
         //fase 3
         if(contador==250){
+//tudo.style apenas para teste da fase 3            
+//            tubo.style.display = "none"
             comandos.innerHTML= 'Click for <a>DECREASE</a>'
             comandos.style.display= 'inline-block'
             gameBoard.style.background = 'linear-gradient(black,white)'
