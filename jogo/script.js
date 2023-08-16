@@ -12,6 +12,12 @@ const koopaVoador2 = document.querySelector('.koopa-voa2')
 const koopaVoador3 = document.querySelector('.koopa-voa3')
 const balaBill = document.querySelector('.bala')
 const trofeu = document.querySelector('.trofeu')
+const key = document.querySelector('.key')
+const fireFlower = document.querySelector('.fireFlower')
+const fireBall = document.querySelector('.fireBall')
+const usarChave = document.querySelector('.finalBoss')
+const mensagem = document.getElementById('mensagem')
+const portaBowser = document.querySelector('.portaBowser')
 //audio
 const somMorte = document.getElementById('trilhaMorte')
 const trilha1 = document.getElementById('trilha1')
@@ -19,6 +25,7 @@ const trilhaVitoria = document.getElementById('trilhaVitoria')
 //variaveis preDeclaradas
 let sensorVitoria = false
 let morte = 0
+let keyPoint = false
 let fase3 = false
 let tamanhoMario = 120
 let pulo = true
@@ -122,7 +129,7 @@ document.addEventListener('click', aumentar)
 
         }
 
-        if(posicaoKoopa2 <40 && posicaoMario>140 && posicaoKoopa2>0 && sensorStart == true){
+        if(posicaoKoopa2 <40 && posicaoMario>130 && posicaoKoopa2>0 && sensorStart == true){ //o mais alto
             koopaVoador2.style.animation = "none"
             koopaVoador2.style.left= `${posicaoKoopa2}px`
             morte++
@@ -156,6 +163,17 @@ document.addEventListener('click', aumentar)
 
             vitoria()
         }
+//impacto key
+        const posicaoKey = key.offsetLeft
+        
+        if(posicaoKey<70 && posicaoMario<35 &&  posicaoKey > 0 && sensorStart==true /*&& fase3==true*/){
+            /*balaBill.style.display = 'none'*/
+            /*trofeu.style.left= `${posicaoTrofeu}px`*/
+            keyPoint = true
+            key.style.display = "none"
+            console.log('pegou a chave')
+        }
+
 
 //caso morra  
         if(morte==1){
@@ -204,6 +222,7 @@ document.addEventListener('click', aumentar)
             fase3 = false
             pulo = false
             sensorVitoria = true
+            usarChave.style.display = "flex"
     }
 
 const loop = setInterval(impacto,10)
@@ -214,16 +233,25 @@ const loop = setInterval(impacto,10)
     function lancamentoDeInimigos(){
         //fase2
         if(contador == 100){
+            
             gameBoard.style.background = 'linear-gradient(red,white)'
             tubo.style.display = "none"
             koopaVoador1.style.display = "block"
             koopaVoador2.style.display = "block"
             koopaVoador3.style.display = "block"
+            key.style.display = "block"
+
             console.log("fase 2")
+
         }
+        //desaparecer a key
+        if(contador == 159){
+            key.style.display = "none"
+        }
+
         //fase 3
         if(contador==250){
-//tudo.style apenas para teste da fase 3            
+//tubo.style apenas para teste da fase 3            
 //            tubo.style.display = "none"
             comandos.innerHTML= 'Click for <a>DECREASE</a>'
             comandos.style.display= 'inline-block'
@@ -243,3 +271,20 @@ const loop = setInterval(impacto,10)
     }
 
 setInterval(lancamentoDeInimigos,100)
+
+
+
+//final part
+function mostrarFase(){
+    if(keyPoint == true){
+    usarChave.style.display = "none"
+    portaBowser.style.display = "flex"
+    }else{
+        usarChave.style.display = "none"
+        mensagem.style.display = "flex"
+
+
+    }
+}
+
+usarChave.addEventListener('click', mostrarFase)
