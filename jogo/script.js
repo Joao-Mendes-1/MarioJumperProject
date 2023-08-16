@@ -33,8 +33,8 @@ let contador =  0
         //tempo\\
         function contarTempo(){
             if(morte==0 && sensorVitoria == false){
-                 console.log(contador)
-                 contarPonto()
+                console.log(contador)
+                contarPonto()
                 return contador++
 
             } 
@@ -100,7 +100,6 @@ document.addEventListener('mousedown', diminuir)
 document.addEventListener('click', aumentar)
 
     function impacto(){
-       
         const posicaoTubo = tubo.offsetLeft;
         const posicaoMario = +window.getComputedStyle(mario).bottom.replace('px','')
         if(posicaoTubo < 95 && posicaoMario <90 && posicaoTubo>0){
@@ -241,7 +240,6 @@ const loop = setInterval(impacto,10)
             trofeu.style.display = 'block'
         }
 
-       
     }
 
 setInterval(lancamentoDeInimigos,100)

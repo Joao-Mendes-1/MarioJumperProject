@@ -1,23 +1,32 @@
 
-*{
+/**{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+}*/
 
 @font-face {
     font-family: mario;
     src: url('SuperMario256.ttf');
 }
+
+
 body{
     background-color: rgb(245, 55, 55);
     
 }
 
+.conteiner{
+    padding: 50px;
+
+}
+
+
 .div-topo {
-    margin-top: 30px;
-    position: relative;
-    text-align: center;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -31,27 +40,27 @@ body{
     /*border: 1px solid black;*/
     border: none;
     border-radius: 10px;
-    transition: 1000ms;
-    animation: start 500ms infinite linear ;
+    transition: 700ms;
+    /*animation: start 700ms infinite linear ;*/
 }
 
 .start:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     
 }
 
-@keyframes start {
+/*@keyframes start {
     30% {
-        transform: rotate(5deg);
-       } 
+        transform: rotate(3deg);
+    } 
     /*60% {
         
         transform: rotate(-10deg);
-    }*/
+    
     70% {
-        transform: rotate(-5deg);
+        transform: rotate(-3deg);
     }
-}
+}*/
 
 .div-reset{
     margin-top: 30px;
@@ -144,14 +153,13 @@ body{
     margin-top: 20px;
     width: 80%;
     height: 400px;
-    border: 2px solid black;
-    border-radius: 30px;
-    border-bottom: 30px solid rgb(0, 112, 48);
+    border: 20px ridge rgb(4, 155, 29);
+    border-radius: 40px;
+    border-bottom: 20px solid rgb(4, 155, 29);
     
     position: relative;
     overflow: hidden;
-    transition: 1s;
-    /*background-image: linear-gradient(red,white);*/    
+    transition: 1s;  
 }
 
 .tabela-pontos{ 
@@ -284,10 +292,10 @@ body{
 
     from {
         transform: rotate(0deg);
-      }
-      to {
+    }
+    to {
         transform: rotate(360deg);
-      }
+    }
     0%    { opacity: 0; } 
     50%   { opacity: 0.5; }
     100%  { opacity: 1; }
