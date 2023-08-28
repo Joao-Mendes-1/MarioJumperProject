@@ -25,14 +25,14 @@ const trilhaVitoria = document.getElementById('trilhaVitoria')
 //variaveis preDeclaradas
 let sensorVitoria = false
 let morte = 0
-let keyPoint = false
+let keyPoint = true
 let fase3 = false
 let tamanhoMario = 120
 let pulo = true
 //start
 const botaoStart = document.querySelector('.start')
 let sensorStart = false
-let contador =  0
+let contador = 0
 
 
     function start() {
@@ -287,4 +287,15 @@ function mostrarFase(){
     }
 }
 
+let url = "fase4/bowser.html"
+
+function entrar(url){
+
+    let win = window.open(url, '_blank')
+    win.focus()
+}
+
 usarChave.addEventListener('click', mostrarFase)
+portaBowser.addEventListener('click', function(){
+    entrar(url)
+})

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bowser.css" rel="stylesheet" type="text/css">
+    <title>Bowser</title>
+</head>
+<body>
+    
+    <header class="div-topo">
+        <button class="start">start</button>
+    </header >
+
+    <section class="conteiner">
+
+        <div class="game-board">
+
+        <div class="tabela-pontos">
+        <p class="contador-pontos">0</p>
+        </div>
+        <img src="fase4Sprite/marioFase4.gif" class="mario" id="mario">
+        <img src="../fireFlower.png" class="fireFlower">
+        <img src="../fireBall.gif" class="fireBall">
+        <img src="fase4Sprite/bowser.gif" class="bowser" id="bowser">
+        <img src="fase4Sprite/morteBowser.gif" class="morteBowser" id="morteBowser">
+        <img src="fase4Sprite/casco.gif" class="casco" id="casco">
+        <img src="fase4Sprite/fantasma.gif" class="fantasma" id="fantasma">
+        
+        <img src="fase4Sprite/balaBoss.gif" class="balaBoss" id="balaBoss">
+
+        <img src="fase4Sprite/lemmykoopa.gif" class="koopaLemmy" id="koopaLemmy">
+        <audio src="../trilhaMorte.mp3" id="trilhaMorte"></audio>
+        <audio src="trilhaBowser.mp3" id="trilhaBowser"></audio>
+        <audio src="../trilhaVitoria.mp3" id="trilhaVitoria"></audio>
+        
+        <div class="div-reset">
+        <button class="reset">Press <a>Any key</a> to reset</button>
+        </div>
+
+    </section>
+
+
+<script src="bowser.js"></script>
+</body>
+</html>
