@@ -171,7 +171,6 @@ document.addEventListener('click', aumentar)
             /*trofeu.style.left= `${posicaoTrofeu}px`*/
             keyPoint = true
             key.style.display = "none"
-            console.log('pegou a chave')
         }
 
 
@@ -245,7 +244,7 @@ const loop = setInterval(impacto,10)
 
         }
         //desaparecer a key
-        if(contador == 159){
+        if(contador >=140){
             key.style.display = "none"
         }
 
