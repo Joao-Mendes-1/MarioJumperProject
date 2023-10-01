@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="../style/imagens/logoAba.png"/>
+    <link rel="stylesheet" type="text/css" href="../style/css/mario.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Jump</title>
+</head>
+<body>
+
+    <header class="div-topo">
+        <button class="start">start</button>
+        <p class="vitoria">you win</p>
+    </header >
+
+    <section class="conteiner">
+
+        <div class="game-board">
+
+        <div class="tabela-pontos">
+        <p class="contador-pontos">0</p>
+        </div>
+
+        
+        <audio src="../style/som/trilhaMorte.mp3" id="trilhaMorte"></audio>
+        <audio src="../style/som/trilha1.mp3" id="trilha1"></audio>
+        <audio src="../style/som/trilhaVitoria.mp3" id="trilhaVitoria"></audio>
+        <img src="../style/imagens/nuvem2.png" class="nuvem2">
+        <img src="../style/imagens/nuvem1.png" class="nuvem1">
+        <img src="../style/imagens/tubo.png" class="tubo">
+        <img src="../style/imagens/mario.gif" class="mario" id="mario">
+        <img src="../style/imagens/key.gif" class="key">
+        <img src="../style/imagens/fireBall.gif" class="fireBall">
+        <img src="../style/imagens/koopa.gif" class="koopa-voa1">
+        <img src="../style/imagens/koopa.gif" class="koopa-voa2">
+        <img src="../style/imagens/koopa.gif" class="koopa-voa3">
+        <img src="../style/imagens/balaBoss.gif" class="bala">
+        <img src="../style/imagens/trofeu.gif" class="trofeu">
+        </div>
+        <div class="div-reset">
+        <button class="reset">Press <a>Any key</a> to reset</button>
+        <button class="comandos">Press <a>space</a> to jump</button>
+        </div>
+
+    </section>
+
+    <section class="boss-button-section">
+        <input type="button" value="Usar a chave da sala do Bowser?" class="finalBoss">
+        <input type="button" value="   bowser   " class= "portaBowser">
+        <p class="finalBoss" id="mensagem">Desculpe, você não possui nenhuma chave</p>
+    </section>
+</body>
+<script src="script.js" defer></script>
+</html>
