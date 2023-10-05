@@ -32,7 +32,7 @@ let pulo = true
 //start
 const botaoStart = document.querySelector('.start')
 let sensorStart = false
-let contador = 0
+let contador = 250
 
 
     function start() {
@@ -214,7 +214,7 @@ document.addEventListener('click', aumentar)
             trilha1.pause()
             trilhaVitoria.play()
             trofeu.style.display= "none"
-            mario.src="vitoria.png"
+            mario.src="style/imagens/vitoria.png"
             mario.style.width= '60px'
             mario.style.left= `${50}%`
             mario.style.bottom= `${0}px`
@@ -251,7 +251,7 @@ const loop = setInterval(impacto,10)
         //fase 3
         if(contador==250){
 //tubo.style apenas para teste da fase 3            
-//            tubo.style.display = "none"
+            tubo.style.display = "none"
             comandos.innerHTML= 'Click for <a>DECREASE</a>'
             comandos.style.display= 'inline-block'
             gameBoard.style.background = 'linear-gradient(black,white)'
@@ -286,7 +286,7 @@ function mostrarFase(){
     }
 }
 
-let url = "../bowser/bowser.html"
+let url = "bowser/bowser.html"
 
 function entrar(url){
 

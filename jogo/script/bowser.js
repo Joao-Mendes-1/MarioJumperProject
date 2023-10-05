@@ -240,7 +240,7 @@ function impacto(){
         gameBoard.style.animation = 'none'
         mario.style.animation= 'none'
         disparar = false
-        mario.src="../../style/imagens/morte.png"
+        mario.src="../style/imagens/morte.png"
         mario.style.width="60px"
         mario.style.left = "50px"
         mario.style.top = "250px"
