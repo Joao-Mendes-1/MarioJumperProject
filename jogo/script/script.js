@@ -196,7 +196,7 @@ document.addEventListener('click', aumentar)
 
             
             
-            mario.src="../style/imagens/morte.png"
+            mario.src="style/imagens/morte.png"
             mario.style.width="60px"
             if(fase3==true){
                 fase3 = false
@@ -286,7 +286,7 @@ function mostrarFase(){
     }
 }
 
-let url = "bowser/bowser.html"
+let url = "../bowser/bowser.html"
 
 function entrar(url){
 
