@@ -25,14 +25,14 @@ const trilhaVitoria = document.getElementById('trilhaVitoria')
 //variaveis preDeclaradas
 let sensorVitoria = false
 let morte = 0
-let keyPoint = true
+let keyPoint = false
 let fase3 = false
 let tamanhoMario = 120
 let pulo = true
 //start
 const botaoStart = document.querySelector('.start')
 let sensorStart = false
-let contador = 250
+let contador = 0
 
 
     function start() {
@@ -226,9 +226,6 @@ document.addEventListener('click', aumentar)
 
 const loop = setInterval(impacto,10)
 
-
-
-
     function lancamentoDeInimigos(){
         //fase2
         if(contador == 100){
@@ -251,7 +248,7 @@ const loop = setInterval(impacto,10)
         //fase 3
         if(contador==250){
 //tubo.style apenas para teste da fase 3            
-            tubo.style.display = "none"
+            //tubo.style.display = "none"
             comandos.innerHTML= 'Click for <a>DECREASE</a>'
             comandos.style.display= 'inline-block'
             gameBoard.style.background = 'linear-gradient(black,white)'
