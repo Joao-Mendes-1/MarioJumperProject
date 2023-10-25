@@ -1,18 +1,13 @@
-
-
 @font-face {
     font-family: mario;
     src: url("../../style/fonte/SuperMario256.ttf");
 }
-
-
 
 body{
     background-color: black;
 }
 .conteiner{
     padding: 50px;
-
 }
 
 .div-topo {
@@ -20,9 +15,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
+/*  elementos de comando/funcionamento do jogo  */
 .start{
     font-family: mario;
     text-transform: uppercase;
@@ -30,11 +24,9 @@ body{
     font-size: 35px;
     color: whitesmoke;
     background-color: rgb(165, 1, 1);
-    /*border: 1px solid black;*/
     border: none;
     border-radius: 10px;
     transition: 700ms;
-    /*animation: start 700ms infinite linear ;*/
 }
 
 .start:hover{
@@ -53,7 +45,6 @@ body{
     border: 20px ridge rgb(0, 0, 0);
     border-radius: 40px;
     border-bottom: 20px solid rgb(255, 218, 52);
-    
     position: relative;
     overflow: hidden;
     transition: 1s;  
@@ -68,7 +59,6 @@ body{
 .contador-pontos{
     padding: 10px;
     display: hidden;
-    /*display: inline-block;*/
     font-size: 20px;
     font-family: mario;
     background-color: rgb(247, 232, 214);
@@ -78,7 +68,6 @@ body{
 
 .reset{
     display: none;
-    /*display: inline-block;*/
     background-color: rgb(58, 132, 228);
     padding: 15px;
     font-size: 15px;
@@ -100,6 +89,7 @@ body{
     font-weight: bold;
 }
 
+/*  objetos do jogo  */
 .bowser{
     display: block;
     transform: rotatey(180deg);
@@ -108,10 +98,6 @@ body{
     bottom: 0px;
     width: 190px;
 
-}
-.hitEfect{
-    filter: brightness(3);
-    /*filter: grayscale(90%);*/
 }
 
 .morteBowser{
@@ -126,36 +112,16 @@ body{
 .mario{
     left: 0px;
     position: absolute;
-    
     bottom: -20px;
     width: 140px;
-    /*width: 90px;*/
     
 }
 
-.jump{
-    animation: pulo 500ms ;
-}
-
-@keyframes pulo {
-    0% {
-        bottom: 0;
-    }
-
-    40%{
-        bottom: 170px;
-    }
-    50% {
-        bottom: 180px;
-    }
-
-    60% {
-        bottom: 180px;
-    }
-    0% {
-        bottom: 0;
-    }
-    
+.casco{
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    width: 50px;
 }
 
 .fireBall{
@@ -166,18 +132,86 @@ body{
     width: 35px;
     
 }
+.balaBill{
+    bottom: 0;
+    right: -30%;
+    width: 280px;
+    display: none;
+    position: absolute;
+}
 
+.fantasma{
+    display: none;
+    position: absolute;
+    bottom: 145px;
+    width: 80px;
+}
+
+.koopaLemmy{
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    width: 130px;
+}
+
+/*  efeito de luz no bowser  */
+.hitEfect{
+    filter: brightness(3);
+}
+
+/*  classe utlizada apenas para a animação do pulo do mario  */
+.jump{
+    animation: pulo 500ms ;
+}
+
+
+/*  classe utlizada para a animação dos objetos  */
 .fireBallAnimation {
     animation: disparar 1700ms linear;
 }
 .fireBallAnimationJump {
     animation: dispararJump 1700ms linear;
 }
+
+.koopaLemmyAnimation{
+    animation: deslizarLemmy 890ms linear;
+}
+
+.balaBillAnimation{
+    animation: voaBalaBill 1250ms linear;
+}
+
+.fantasmaAnimation{
+    animation: voarFantasma 1900ms linear;
+}
+
+.cascoAnimation {
+    animation: deslizarCasco 500ms linear
+}
+
+/*  animações  */
+
+@keyframes pulo {
+    0% {
+        bottom: 0;
+    }
+    40%{
+        bottom: 170px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    60% {
+        bottom: 180px;
+    }
+    0% {
+        bottom: 0;
+    }
+}
 @keyframes disparar {
     from {
         left: 95px;
     }
-
     to {
         left: 100%;
     }
@@ -203,13 +237,10 @@ body{
     100%  { bottom: 50px;}
 
 }
-
-
 @keyframes dispararJump {
     from {
         left: 95px;
     }
-
     to {
         left: 100%;
     }
@@ -235,18 +266,6 @@ body{
     100%  { bottom: 50px;}
 
 }
-
-.koopaLemmy{
-    display: none;
-    position: absolute;
-    bottom: 0px;
-    width: 130px;
-}
-
-.koopaLemmyAnimation{
-    animation: deslizarLemmy 890ms linear;
-}
-
 @keyframes deslizarLemmy {
     from {
         right: 20%;
@@ -255,17 +274,7 @@ body{
         right: 100%;
     }
 }
-.balaBoss{
-    bottom: 0;
-    right: -30%;
-    width: 280px;
-    display: none;
-    position: absolute;
-}
-.balaBossAnimation{
-    animation: voaBalaBoss 1250ms linear;
-}
-@keyframes voaBalaBoss {
+@keyframes voaBalaBill {
     from {
         right: -40%;
     }
@@ -273,35 +282,6 @@ body{
         right: 100%;
     }
 
-}
-.fantasma{
-    display: none;
-    position: absolute;
-    bottom: 145px;
-    width: 80px;
-}
-
-.fantasmaAnimation{
-    animation: voarFantasma 1900ms linear;
-}
-@keyframes voarFantasma {
-    from {
-        right: 20%;
-    }
-    to {
-        right: 100%;
-    }
-}
-
-.casco{
-    display: none;
-    position: absolute;
-    bottom: 0px;
-    width: 50px;
-}
-
-.cascoAnimation {
-    animation: deslizarCasco 500ms linear
 }
 @keyframes deslizarCasco {
     from {
@@ -311,10 +291,11 @@ body{
         right: 100%;
     }
 }
-
-.fireFlower {
-    display: none;
-    margin-top: 350px;
-    position: absolute;
-    width: 50px;
+@keyframes voarFantasma {
+    from {
+        right: 20%;
+    }
+    to {
+        right: 100%;
+    }
 }

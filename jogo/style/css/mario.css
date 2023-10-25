@@ -1,15 +1,7 @@
-
-/**{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}*/
-
 @font-face {
     font-family: mario;
     src: url("../fonte/SuperMario256.ttf");
 }
-
 
 body{
     background-color: rgb(245, 55, 55);
@@ -21,7 +13,6 @@ body{
 
 }
 
-
 .div-topo {
     padding: 30px;
     display: flex;
@@ -30,6 +21,7 @@ body{
 
 }
 
+/*  elementos de comando/funcionamento do jogo  */
 .start{
     font-family: mario;
     text-transform: uppercase;
@@ -37,30 +29,15 @@ body{
     font-size: 35px;
     color: whitesmoke;
     background-color: rgb(58, 132, 228);
-    /*border: 1px solid black;*/
     border: none;
     border-radius: 10px;
     transition: 700ms;
-    /*animation: start 700ms infinite linear ;*/
 }
 
 .start:hover{
     transform: scale(1.1);
     
 }
-
-/*@keyframes start {
-    30% {
-        transform: rotate(3deg);
-    } 
-    /*60% {
-        
-        transform: rotate(-10deg);
-    
-    70% {
-        transform: rotate(-3deg);
-    }
-}*/
 
 .div-reset{
     margin-top: 30px;
@@ -79,13 +56,14 @@ body{
     border-radius: 90px;
     transition: 400ms;
 }
+
 .comandos a {
     font-size: 25px;
     color:rgb(58, 132, 228);
 }
+
 .reset{
     display: none;
-    /*display: inline-block;*/
     background-color: rgb(58, 132, 228);
     padding: 15px;
     font-size: 15px;
@@ -96,6 +74,7 @@ body{
     transition: 400ms;
     
 }
+
 .reset a{
     padding: 3px;
     font-size: 15px;
@@ -110,7 +89,6 @@ body{
 .vitoria{
     padding: 15px;
     display: none;
-    /*display: inline-block;*/
     margin-top: 20px;
     font-size: 40px;
     font-family: mario;
@@ -128,6 +106,7 @@ body{
     align-items: center;
     padding: 50px;
 }
+
 .finalBoss{
     display: none;
     padding: 15px;
@@ -156,6 +135,7 @@ body{
     border: 3px inset rgb(255, 255, 255);
     transition: 150ms;
 }
+
 .portaBowser:hover{
     border: 7px outset white;
 }
@@ -163,6 +143,7 @@ body{
 .portaBowser{
     display: none;
 }
+
 .game-board{
     
     display: none ;
@@ -197,9 +178,12 @@ body{
     border-radius: 40px;
 }
 
+/*  classe utlizada apenas para a animação do pulo do mario  */
+.jump{
+    animation: pulo 500ms ;
+}
 
-
-/*Nuvens*/
+/*  objetos do jogo  */
 .nuvem1{
     position: absolute;
     opacity: 70%;
@@ -216,7 +200,75 @@ body{
     animation: nuvem2 13s infinite linear;
 }
 
+.tubo {
+    position: absolute;
+    width: 70px;
+    bottom: 0;
+    /*left: 95px;*/
+    animation: tubo 1s infinite linear;
+}
 
+.mario{
+    left: 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 120px;
+}
+
+.trofeu{
+    display: none;
+    position: absolute;
+    width: 130px;
+    bottom: 100px;
+    animation: trofeu 3s infinite linear;
+}
+
+.koopa-voa1{
+    display: none;
+    position: absolute;
+    width: 165px;
+    bottom: 0px;
+    transform: rotatey(180deg);
+    animation: koopaVoa 3s infinite linear;
+    
+}
+
+.koopa-voa2{
+    display: none;
+    position: absolute;
+    width: 165px;
+    bottom: 100px;
+    transform: rotatey(180deg);
+    animation: koopaVoa 5s infinite linear;
+    
+}
+
+.koopa-voa3{
+    display: none;
+    position: absolute;
+    width: 165px;
+    bottom: 35px;
+    transform: rotatey(180deg);
+    animation: koopaVoa 4s infinite linear;
+    
+}
+
+.balaBill{
+    display: none;
+    position: absolute;
+    width: 380px;
+    animation: balaBill 1s infinite linear;
+}
+
+.key{
+    display: none;
+    bottom: 5px;
+    position: absolute;
+    width: 80px;
+    animation: key 4s linear;
+}
+
+/*  animação  */
 @keyframes nuvem2 {
     from {
         right: -1300px;
@@ -235,40 +287,6 @@ body{
     to {
         right: 100%;
     }
-}
-
-/*Tubo*/
-
-.tubo {
-    position: absolute;
-    width: 70px;
-    bottom: 0;
-    /*left: 95px;*/
-    animation: tubo 1s infinite linear;
-}
-
-@keyframes tubo {
-    from {
-        right: -60px;
-    }
-
-    to { 
-        right: 100%;
-    }
-}
-
-/*Mario*/
-.mario{
-    left: 0px;
-    position: absolute;
-    bottom: 0px;
-    width: 120px;
-    /*width: 90px;*/
-    
-}
-
-.jump{
-    animation: pulo 500ms ;
 }
 
 @keyframes pulo {
@@ -292,101 +310,15 @@ body{
     
 }
 
-/*trofeu*/
-.trofeu{
-    display: none;
-    position: absolute;
-    /*left: 70px;*/
-    /*width: 10%;*/
-    width: 130px;
-    bottom: 100px;
-    animation: trofeu 3s infinite linear;
-}
-
-/*koopa*/
-.koopa-voa1{
-    display: none;
-    position: absolute;
-    width: 165px;
-    /*width: 15%;*/
-    bottom: 0px;
-    /*left: 40px;*/
-    transform: rotatey(180deg);
-    animation: koopaVoa 3s infinite linear;
-    
-}
-.koopa-voa2{
-    display: none;
-    position: absolute;
-    width: 165px;
-    /*width: 15%;*/
-    /*left: 40px;*/
-    bottom: 100px;
-    transform: rotatey(180deg);
-    animation: koopaVoa 5s infinite linear;
-    
-}
-.koopa-voa3{
-    display: none;
-    position: absolute;
-    width: 165px;
-    /*left: 40px;*/
-    /*width: 15%;*/
-    bottom: 35px;
-    transform: rotatey(180deg);
-    animation: koopaVoa 4s infinite linear;
-    
-}
-
-
-/*balaBoss*/
-.bala{
-    display: none;
-    position: absolute;
-    width: 380px;
-    /*width: 35%;*/
-    animation: bala 1s infinite linear;
-}
-
-
-.key{
-    display: none;
-    bottom: 5px;
-    /*margin-left: 50px;*/
-    position: absolute;
-    width: 80px;
-    animation: key 4s linear;
-}
-
-.fireBall{
-    display: none;
-    margin-left: 100px;
-    margin-top: 350px;
-    position: absolute;
-    width: 35px;
-}
-
-
-
-@keyframes key {
+@keyframes tubo {
     from {
-        right: -1000px;
+        right: -60px;
     }
 
     to { 
         right: 100%;
     }
-    
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-
-    
 }
-
 
 @keyframes koopaVoa {
     from {
@@ -398,9 +330,48 @@ body{
     }
 }
 
-@keyframes bala {
+@keyframes key {
+    from {
+        right: -1000px;
+    }
+    to { 
+        right: 100%;
+    }
+    
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes balaBill {
     from {
         right: -800px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes trofeu {
+    0%    { bottom: 200px; } 
+    70%   {bottom: 50px; }
+    100%  { bottom: 150px; }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+    0%    { opacity: 0; } 
+    50%   { opacity: 0.5; }
+    100%  { opacity: 1; }
+    from {
+        right: -400px;
     }
 
     to {
@@ -425,32 +396,7 @@ body{
         color: rgb(245,55,55);
         border: 3px dashed rgb(253,251,251);
     }
-
     100% {
         transform: rotate(0deg);
-    }
-}
-
-@keyframes trofeu {
-
-    0%    { bottom: 200px; } 
-    70%   {bottom: 50px; }
-    100%  { bottom: 150px; }
-
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-    0%    { opacity: 0; } 
-    50%   { opacity: 0.5; }
-    100%  { opacity: 1; }
-    from {
-    right: -400px;
-    }
-
-    to {
-        right: 100%;
     }
 }

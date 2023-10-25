@@ -1,21 +1,22 @@
+//obj
 const gameBoard = document.querySelector('.game-board')
 const comandos = document.querySelector('.comandos')
 const contadorPontos = document.querySelector('.contador-pontos')
 const reset = document.querySelector('.reset')
 const mario = document.querySelector('.mario')
-const fireFlower = document.querySelector('.fireFlower')
 const fireBall = document.querySelector('.fireBall')
 const bowser = document.querySelector('.bowser')
 const morteBowser = document.querySelector('.morteBowser')
 const casco = document.querySelector('.casco')
 const koopaLemmy= document.querySelector('.koopaLemmy')
 const fantasma = document.querySelector('.fantasma')
-const balaBoss = document.querySelector('.balaBoss')
+const balaBill = document.querySelector('.balaBill')
+const botaoStart = document.querySelector('.start')
 //audio
 const somMorte = document.getElementById('trilhaMorte')
 const trilhaBowser = document.getElementById('trilhaBowser')
 const trilhaVitoria = document.getElementById('trilhaVitoria')
-
+//variaveis pré declaradas
 let sensorVitoria = false
 let morte = 0
 let tamanhoMario = 120
@@ -27,14 +28,13 @@ let dispararLemmySensor = true
 let dispararCascoSensor = true
 let dispararFantasmaSensor = true
 let fireBallJump = false
-
-//start
-const botaoStart = document.querySelector('.start')
 let sensorStart = false
 let contador =  0
 
+
+//start
 function start() {
-    //tempo\\
+//tempo
     function contarTempo(){
         if(morte==0 && sensorVitoria == false){
             contarPonto()
@@ -43,11 +43,11 @@ function start() {
         } 
     }
     setInterval(contarTempo,100)
-
+//contar ponto
     function contarPonto(){
         contadorPontos.innerHTML = contador
     }
-    
+//funcionamento do start
     document.querySelector('.start').style.display= "none"
     gameBoard.style.display= "block"
     trilhaBowser.play()
@@ -56,6 +56,7 @@ function start() {
 
 }
 
+//eventos para iniciar o jogo
 botaoStart.onclick = start
 document.addEventListener("keypress", function(event,which){
     if(event.which === 32 && sensorStart === false){
@@ -63,12 +64,7 @@ document.addEventListener("keypress", function(event,which){
     }
 })
 
-function sumirComBowser(){
-    morteBowser.style.display = "none"
-    contador = 15000000
-    contadorPontos.innerHTML = contador
 
-}
 function vitoria () {
     if(contador <350){
     fantasma.style.display= "none"
@@ -77,15 +73,22 @@ function vitoria () {
     morteBowser.style.display="block"
     disparar = false
     pulo = false
-    setInterval(sumirComBowser,1000)
+    setInterval(vitoriaConsequencia,1000)
     trilhaBowser.pause()
     trilhaVitoria.play()
     }
 }
+function vitoriaConsequencia(){
+    morteBowser.style.display = "none"
+    contador = 15000000
+    contadorPontos.innerHTML = contador
+}
 
+//comandos do mario
 document.addEventListener('keydown', jump)
 document.addEventListener('mousedown', dispararFireball)
 
+//lógica do comando disparar fireball
 function dispararFireball() {
     if(disparar==true && pulo==false && sensorVitoria==false){
         fireBall.style.display = "block"
@@ -109,11 +112,37 @@ function stopFireBall() {
     fireBallJump = false
     return disparar = true
 }
+//lógica do comando jump
+function jump() {
+    if(pulo==true){
+        mario.classList.add('jump')
+        setTimeout(stopJump,500)
+        return pulo=false
+    }
+}
 
+function stopJump() {
+    mario.classList.remove('jump')
+    return pulo = true
+}
 
+//lógica lançamento de fases e inimigos
 
+function dispararFase1() {
+    if(dispararCascoSensor==true && sensorStart==true && contador<50){
+        casco.style.display = "block"
+        casco.classList.add('cascoAnimation')
+        setTimeout(stopFase1,500)
+        return dispararCascoSensor = false
+    }else if(dispararLemmySensor == true && contador>50 && contador<350){
+        koopaLemmy.style.display = "block"
+        koopaLemmy.classList.add('koopaLemmyAnimation')
+        setTimeout(stopFase1,880)
+        return dispararLemmySensor = false
+    }
+}
 
-function stopInimigos() {
+function stopFase1() {
     if(dispararCascoSensor == false){
         casco.classList.remove('cascoAnimation')
         casco.style.display= "none"
@@ -125,14 +154,6 @@ function stopInimigos() {
     }
 }
 
-function stopFantasma() {
-    if(dispararFantasmaSensor==false){
-        fantasma.classList.remove('fantasmaAnimation')
-        fantasma.style.display= "none"
-        return dispararFantasmaSensor = true
-        }
-}
-
 function dispararFantasmaFunction(){
     if(sensorStart==true && contador>100 &&  contador < 310 &&dispararFantasmaSensor==true){
         fantasma.style.display = "block"
@@ -142,47 +163,25 @@ function dispararFantasmaFunction(){
     }
 }
 
-function dispararFase1() {
-    if(dispararCascoSensor==true && sensorStart==true && contador<50){
-        casco.style.display = "block"
-        casco.classList.add('cascoAnimation')
-        setTimeout(stopInimigos,500)
-        return dispararCascoSensor = false
-    }else if(dispararLemmySensor == true && contador>50 && contador<350){
-        koopaLemmy.style.display = "block"
-        koopaLemmy.classList.add('koopaLemmyAnimation')
-        setTimeout(stopInimigos,880)
-        return dispararLemmySensor = false
-    }
+function stopFantasma() {
+    if(dispararFantasmaSensor==false){
+        fantasma.classList.remove('fantasmaAnimation')
+        fantasma.style.display= "none"
+        return dispararFantasmaSensor = true
+        }
 }
+
+//final antecipado
 function final (){
     if(contador==351 && vidaBowser>0){
         koopaLemmy.style.display = "none"
         bowser.style.display="none"
-        balaBoss.style.display ="block"
-        balaBoss.classList.add('balaBossAnimation')
+        balaBill.style.display ="block"
+        balaBill.classList.add('balaBillAnimation')
     }
-
 }
 
-
-function jump() {
-    if(pulo==true){
-        mario.classList.add('jump')
-        setTimeout(stopJump,500)
-        return pulo=false
-        
-    }
-
-}
-
-function stopJump() {
-    mario.classList.remove('jump')
-    return pulo = true
-}
-
-
-// impacto
+//lógica de impacto
 function impacto(){
     const posicaoBowser = +window.getComputedStyle(bowser).left.replace('px','')
     const posicaoMario = +window.getComputedStyle(mario).left.replace('px','')
@@ -190,12 +189,12 @@ function impacto(){
     const posicaoCasco = +window.getComputedStyle(casco).left.replace('px','')
     const posicaoLemmy = +window.getComputedStyle(koopaLemmy).left.replace('px','')
     const posicaoFantasma = +window.getComputedStyle(fantasma).left.replace('px','')
-    const posicaoBalaBoss = +window.getComputedStyle(balaBoss).left.replace('px','')
+    const posicaoBalaBoss = +window.getComputedStyle(balaBill).left.replace('px','')
 
-    //hitBowser
+//efeito da fireball no bowser
     bowser.classList.remove('hitEfect')
     
-//fireBall
+//fireBall impacto
     if(posicaoFireBall>=posicaoBowser){
         fireBall.style.display = "none"
         vidaBowser -- 
@@ -207,7 +206,7 @@ function impacto(){
         
     }
 
-//casco, lemmy e fantasma
+//casco, lemmy e fantasma impacto
     if(posicaoMario>=posicaoCasco && pulo==true){
         casco.style.left= `50px`
         return morte++
@@ -224,13 +223,9 @@ function impacto(){
         return morte++
     }
 
-//caso morra  
+//evento de morte
     if(morte>=1 && morte<3){
-        //resetar pagina\\
-        function resetarPagina(){
-        location.reload()
-        }
-        document.addEventListener('keyup', resetarPagina)
+///efeitos sonoros e visuais da morte
         trilhaBowser.pause()
         somMorte.play()
         somMorte.volume = 0.9
@@ -244,12 +239,20 @@ function impacto(){
         mario.style.width="60px"
         mario.style.left = "50px"
         mario.style.top = "250px"
+//resetar pagina
+        function resetarPagina(){
+            location.reload()
+        }
+        document.addEventListener('keyup', resetarPagina)
     }
+//morte do bowser    
     if(vidaBowser<1){
     vitoria()
     return sensorVitoria = true
     }
 }
+
+//loops para o circular do jogo
 const loop = setInterval(impacto,100)
 setInterval(dispararFase1,100)
 setInterval(dispararFantasmaFunction,1500)
