@@ -19,7 +19,7 @@ Covil do Bowser
 
 1- O start funciona do mesmo jeito
 
-2- O jogo possue 3 momentos diferentes durante a gameplay
+2- O jogo possui 3 momentos diferentes durante a gameplay
 
 5- O Mario tem o poder da fire flower e pode ser acionado com o click direito do mouse
 
