@@ -1,27 +1,25 @@
-# MarioJumperProject
-Um jogo de Run do Mario feito em HTML, CSS e JavaScript puro
+Um jogo de corrida do Mario feito em HTML, CSS e JavaScript puro.
 
-Funciona de seguinte forma:
+Funciona da seguinte forma:
 
 MarioJumperIndex
 
-1- Pode iniciar o jogo clicando no botão Start ou apertando a barra de espaço
+    1. Você pode iniciar o jogo clicando no botão "Start" ou pressionando a barra de espaço.
 
-2- O jogo possue 3 fases na sua forma inicial, 1 sendo apenas o tubo, 2 sendo as tartarugas voadoras e 3 o bala Bill
+    2. O jogo possui 3 fases na sua versão inicial: a primeira é apenas o tubo, a segunda envolve tartarugas voadoras, e a terceira apresenta o Bullet Bill.
 
-3- Existe uma chave que pode te levar ao covil do Bowser
+    3. Existe uma chave que pode te levar ao covil do Bowser.
 
-4- São adicionados comandos durante a gameplay, na fase 3 é adicionado o botão de diminuir de tamanho(click direito do mouse), para voltar ao tamanho inicial é só soltar o click
+    4. Comandos adicionais são introduzidos durante a gameplay. Na fase 3, por exemplo, é adicionado o comando para diminuir de tamanho (clique direito do mouse). Para voltar ao tamanho original, basta soltar o clique.
 
-5- Para vencer é necessário pegar o troféu que está presente na fase 3
+    5. Para vencer, é necessário pegar o troféu que está presente na fase 3.
 
 Covil do Bowser
 
-1- O start funciona do mesmo jeito
+    1. O início do jogo funciona da mesma forma.
 
-2- O jogo possui 3 momentos diferentes durante a gameplay
+    2. O jogo possui 3 momentos diferentes durante a gameplay.
 
-5- O Mario tem o poder da fire flower e pode ser acionado com o click direito do mouse
+    3. O Mario tem o poder da Fire Flower, que pode ser acionado com o clique direito do mouse.
 
-4- Para vencer precisa destruir o Bowser
-
+    4. Para vencer, é preciso destruir o Bowser.
